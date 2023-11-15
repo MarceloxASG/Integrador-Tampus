@@ -1,0 +1,104 @@
+/* styles.css */
+
+.login-container {
+    display: flex;
+    background-color: rgba(248, 232, 218, 0.3);
+    align-items: center;
+    height: 100vh;
+    position: relative; /* Establece el formulario como posición relativa para que los elementos fijos sean relativos a él */
+  }
+  
+  .login-form {
+    max-width: 400px; /* Aumenta el ancho del formulario */
+    padding: 30px; /* Aumenta el espaciado interior del formulario */
+    border: 2px solid black; /* Borde más grueso */
+    background-color: rgba(255, 255, 255, 0.952);
+    border-radius: 8px; /* Bordes más redondeados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .login-form p,
+  .login-form a {
+    margin-top: 10px; /* Espacio entre el texto "o" y el enlace "Regístrate gratis" */
+  }
+  
+  .login-form input {
+    padding: 12px 35px 12px 12px; /* Aumenta el espaciado interior de los campos de entrada */
+    border: 2px solid #ccc;
+    border-radius: 6px; /* Bordes más redondeados */
+    margin-bottom: 20px; /* Espacio entre los campos de entrada */
+    font-size: 20px; /* Tamaño de fuente más grande */
+  }
+  
+  .login-form button {
+    padding: 12px 24px; /* Aumenta el espaciado del botón */
+    background-color: #df8e24;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px; /* Tamaño de fuente más grande */
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .divider {
+    border-left: 2px solid #ccc; /* Borde de la línea más grueso */
+    height: 100px;
+    margin: 0 20px; /* Espacio entre la línea y los botones */
+  }
+  
+  .social-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .google-button, .facebook-button, .twitter-button {
+    padding: 12px 70px;
+    margin: 10px 0;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Agregamos una transición de 0.3 segundos */
+  }
+  
+  .google-button {
+    background-color: #ff3737; /* Rojo */
+    color: #fff;
+  }
+  
+  .facebook-button {
+    background-color: #0270ff; /* Azul de Facebook */
+    color: #fff;
+  }
+  
+  .twitter-button {
+    background-color: #3baef5; /* Celeste de Twitter */
+    color: #fff;
+  }
+  
+  /* Efecto hover */
+  .google-button:hover {
+    background-color: #d13434; /* Color ligeramente más oscuro al pasar el mouse */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+  }
+  
+  .facebook-button:hover {
+    background-color: #1957a8; /* Color ligeramente más oscuro al pasar el mouse */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+  }
+  
+  .twitter-button:hover {
+    background-color: #2d83b8; /* Color ligeramente más oscuro al pasar el mouse */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+  }
+  
+  .login-form button:hover {
+    background-color: #bb7416; /* Color ligeramente más oscuro al pasar el mouse */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
