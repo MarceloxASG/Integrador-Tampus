@@ -1,36 +1,30 @@
 import Logo from '../img/Logo.png';
 import { LoginSocialFacebook } from 'reactjs-social-login';
-import { FacebookLoginButton } from 'react-social-login-buttons';
-import React from 'react';
-import {gapi} from 'gapi-script';
-import { useEffect, useState } from 'react';
-import GoogleLogin from 'react-google-login';
-import { Link } from 'react-router-dom';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { FacebookLoginButton, TwitterLoginButton } from 'react-social-login-buttons';
+import { jwtDecode } from 'jwt-decode';
+import React, {useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useUser } from './context';
   
 const LoginForm = () => {
   
-    const clienteID = '325445624768-7i9ngepu2cjvi3u376pms3hjn833uapb.apps.googleusercontent.com';
-    const [user, setUser] = useState();
+    //Facebook
     const [profile, setProfile] = useState(null);
+    
+    //Google GOD !
+    const {user, setUser} = useUser();
+    const navigate= useNavigate();
 
-    useEffect(() => {
-        const start = () => {
-            gapi.auth2.init({
-                clientId: clienteID,
-            })
-        }
-        gapi.load("client:auth2", start)
-
-    }, [])
-
-    const onSuccess = (response) => {
-        setUser(response.profileObj);
-    }
-
-    const onFailure = () => {
-        console.log("Algo salio mal")
-    }
-
+    const handleLoginSuccess = (credentialResponse) => {
+        const credentialResponseDecoded = jwtDecode(credentialResponse.credential);
+        console.log(credentialResponseDecoded);
+        setUser({ ...user , ...credentialResponseDecoded}); // Almacena la información del usuario en el estado
+        navigate('/Navegar')
+      };
+    
+    
+    
   return (
         <section class="min-h-screen bg-[#f5e5c2]">
             <div class="container h-full pl-16 py-24">
@@ -92,7 +86,7 @@ const LoginForm = () => {
                                 <a
                                     href="#!"
                                     class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
-                                    Forgot password?
+                                    ¿No tienes cuenta?
                                 </a>
                             </div>
 
@@ -143,34 +137,21 @@ const LoginForm = () => {
                             
                         
 
-                            <a class="bg-[#55acee] mb-3 flex w-full items-center justify-center rounded px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-[#138fee] hover:shadow-md focus:shadow-md focus:outline-none focus:ring-0 active:bg-[#106fb8] active:shadow-md dark:shadow-xl dark:hover:shadow-md dark:focus:shadow-md dark:active:shadow-md"
-                                href="#!"
-                                role="button"
-                                data-te-ripple-init
-                                data-te-ripple-color="light">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="mr-2 h-3.5 w-3.5"
-                                    fill="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                                </svg>
-                                Continuar con Twitter
+                            <a>
+                                <TwitterLoginButton />
                             </a>
 
-                                <GoogleLogin 
-                                    clientId={clienteID}
-                                    onSuccess={onSuccess}
-                                    onFailure={onFailure}
-                                    cookiePolicy={"single_host_policy"}
-                                />
-                            <div className={user? "profile":"hidden"}>
-                                {user && (
-                                    <>
-                                        <img src={user.imageUrl} alt="" />
-                                        <h3>{user.name}</h3>
-                                    </>
-                                )}
+                            <div>
+                                <GoogleOAuthProvider clientId='788968571780-fl919dgmr5ndh3ggh64mn33i42h4lc2c.apps.googleusercontent.com'>
+                                    <GoogleLogin
+                                        onSuccess={handleLoginSuccess}
+                                        onError={() => {
+                                            console.log("Login Failed");
+                                        }}
+                                    />
+                                </GoogleOAuthProvider>
                             </div>
+                            
                         </form>
                     </div>
                 </div>

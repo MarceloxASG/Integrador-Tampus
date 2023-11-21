@@ -1,96 +1,85 @@
+import React, {useState} from "react";
+import { data } from "../data/data";
+
 const Inicio02 = () => {
-    
+    //console.log(data)
+    const [foods, setFoods] = useState(data)
+
+    // Filtros elementos
+    const filterType = (category) => {
+        setFoods(
+            data.filter((item) => {
+                return item.category  === category;
+            })
+        );
+    };
+
+    // Filtros precios
+    const filterPrice = (price) => {
+        setFoods(
+            data.filter((item) => {
+                return item.price === price;
+            })
+        )
+    }
+
     return (
-        <section class="text-gray-600 body-font">
-            <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Últimas propiedades añadidas !!!</h1>
-                <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table.</p>
-            </div>
-                <div class="flex flex-wrap -m-4">
-                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                    <a class="block relative h-48 rounded overflow-hidden">
-                    <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260" />
-                    </a>
-                    <div class="mt-4">
-                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                    <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-                    <p class="mt-1">$16.00</p>
+        <div className='max-w-[1640px] m-auto px-4 py-12'>
+            <h1 className='text-orange-600 font-bold text-4xl text-center'>Propiedades disponibles</h1>
+
+            {/*Filtros*/}
+            <div className='flex flex-col lg:flex-row justify-between'>
+
+                <div>
+                    <p className='font-bold text-gray-700'> Filter Tipo</p>
+                    <div className='flex justify-between flex-wrap'>
+                        <button onClick={()=> setFoods(data)} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                            All
+                        </button>
+                        <button onClick={()=> filterType('burger')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                            Apartamentos
+                        </button>
+                        <button onClick={()=> filterType('pizza')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                            Habitaciones
+                        </button>
+                        <button onClick={()=> filterType('salad')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                            Terrazas
+                        </button>
+                        <button onClick={()=> filterType('chicken')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                            Penthouse
+                        </button>
                     </div>
                 </div>
-                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                    <a class="block relative h-48 rounded overflow-hidden">
-                    <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/421x261" />
-                    </a>
-                    <div class="mt-4">
-                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                    <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-                    <p class="mt-1">$21.15</p>
+
+                <div>
+                    <p className='font-bold text-gray-700'>Filtro Precios</p>
+                    <div className="flex justify-between max-w-[390px] w-full">
+                        <button onClick={()=> filterPrice('$')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>$</button>
+                        <button onClick={()=> filterPrice('$$')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>$$</button>
+                        <button onClick={()=> filterPrice('$$$')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>$$$</button>
+                        <button onClick={()=> filterPrice('$$$$')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>$$$$</button>
                     </div>
-                </div>
-                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                    <a class="block relative h-48 rounded overflow-hidden">
-                    <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/422x262" />
-                    </a>
-                    <div class="mt-4">
-                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                    <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-                    <p class="mt-1">$12.00</p>
-                    </div>
-                </div>
-                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                    <a class="block relative h-48 rounded overflow-hidden">
-                    <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/423x263" />
-                    </a>
-                    <div class="mt-4">
-                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                    <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-                    <p class="mt-1">$18.40</p>
-                    </div>
-                </div>
-                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                    <a class="block relative h-48 rounded overflow-hidden">
-                    <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/424x264" />
-                    </a>
-                    <div class="mt-4">
-                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                    <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-                    <p class="mt-1">$16.00</p>
-                    </div>
-                </div>
-                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                    <a class="block relative h-48 rounded overflow-hidden">
-                    <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/425x265" />
-                    </a>
-                    <div class="mt-4">
-                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                    <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-                    <p class="mt-1">$21.15</p>
-                    </div>
-                </div>
-                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                    <a class="block relative h-48 rounded overflow-hidden">
-                    <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/427x267" />
-                    </a>
-                    <div class="mt-4">
-                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                    <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-                    <p class="mt-1">$12.00</p>
-                    </div>
-                </div>
-                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-                    <a class="block relative h-48 rounded overflow-hidden">
-                    <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/428x268" />
-                    </a>
-                    <div class="mt-4">
-                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                    <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-                    <p class="mt-1">$18.40</p>
-                    </div>
-                </div>
                 </div>
             </div>
-        </section>
+
+
+        <div className='grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4'>
+            {foods.map((item, index)=> (
+                <div key={index} className='border shadow-lg rounded-lg hover:scale-105 duration-300'>
+                    <img src={item.image} alt={item.name} 
+                    className='w-full h-[200px] object-cover rounded-t-lg'
+                    />
+                    <div className='flex justify-between px-2 py-4'>
+                        <p className='font-bold'>{item.name}</p>
+                        <p>
+                            <span className='bg-orange-500 text-white p-1 rounded-full'>{item.price}</span>
+                        </p>
+                    </div>
+                </div>
+            ) )}        
+        </div>
+
+        </div>
     );
 };
 
