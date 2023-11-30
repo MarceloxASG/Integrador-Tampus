@@ -25,39 +25,39 @@ const Inicio02 = () => {
 
     return (
         <div className='max-w-[1640px] m-auto px-4 py-12'>
-            <h1 className='text-orange-600 font-bold text-4xl text-center'>Propiedades disponibles</h1>
+            <h1 className='text-orange-600 font-bold text-4xl mt-[-20px] mb-[40px] text-center'>Propiedades disponibles</h1>
 
             {/*Filtros*/}
             <div className='flex flex-col lg:flex-row justify-between'>
 
                 <div>
-                    <p className='font-bold text-gray-700'> Filter Tipo</p>
+                    <p className='font-bold text-gray-700'> Tipos</p>
                     <div className='flex justify-between flex-wrap'>
-                        <button onClick={()=> setFoods(data)} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                        <button onClick={()=> setFoods(data)} className='mr-3 my-3 shadow-sm px-2 py-1 bg-gray-100 border-orange-600 rounded-md text-orange-600 hover:bg-orange-600 hover:text-white'>
                             All
                         </button>
-                        <button onClick={()=> filterType('burger')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                        <button onClick={()=> filterType('burger')} className='mr-3 my-3 shadow-sm px-2 py-1 bg-gray-100 border-orange-600 rounded-md text-orange-600 hover:bg-orange-600 hover:text-white'>
                             Apartamentos
                         </button>
-                        <button onClick={()=> filterType('pizza')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                        <button onClick={()=> filterType('pizza')} className='mr-3 my-3 shadow-sm px-2 py-1 bg-gray-100 border-orange-600 rounded-md text-orange-600 hover:bg-orange-600 hover:text-white'>
                             Habitaciones
                         </button>
-                        <button onClick={()=> filterType('salad')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                        <button onClick={()=> filterType('salad')} className='mr-3 my-3 shadow-sm px-2 py-1 bg-gray-100 border-orange-600 rounded-md text-orange-600 hover:bg-orange-600 hover:text-white'>
                             Terrazas
                         </button>
-                        <button onClick={()=> filterType('chicken')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>
+                        <button onClick={()=> filterType('chicken')} className='mr-3 my-3 shadow-sm px-2 py-1 bg-gray-100 border-orange-600 rounded-md text-orange-600 hover:bg-orange-600 hover:text-white'>
                             Penthouse
                         </button>
                     </div>
                 </div>
 
                 <div>
-                    <p className='font-bold text-gray-700'>Filtro Precios</p>
+                    <p className='font-bold text-gray-700'>Precios</p>
                     <div className="flex justify-between max-w-[390px] w-full">
-                        <button onClick={()=> filterPrice('$')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>$</button>
-                        <button onClick={()=> filterPrice('$$')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>$$</button>
-                        <button onClick={()=> filterPrice('$$$')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>$$$</button>
-                        <button onClick={()=> filterPrice('$$$$')} className='m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white'>$$$$</button>
+                        <button onClick={()=> filterPrice('$')} className='mr-3 my-3 shadow-sm px-2 py-1 bg-gray-100 border-orange-600 rounded-md text-orange-600 hover:bg-orange-600 hover:text-white'>$</button>
+                        <button onClick={()=> filterPrice('$$')} className='mr-3 my-3 shadow-sm px-2 py-1 bg-gray-100 border-orange-600 rounded-md text-orange-600 hover:bg-orange-600 hover:text-white'>$$</button>
+                        <button onClick={()=> filterPrice('$$$')} className='mr-3 my-3 shadow-sm px-2 py-1 bg-gray-100 border-orange-600 rounded-md text-orange-600 hover:bg-orange-600 hover:text-white'>$$$</button>
+                        <button onClick={()=> filterPrice('$$$$')} className='mr-3 my-3 shadow-sm px-2 py-1 bg-gray-100 border-orange-600 rounded-md text-orange-600 hover:bg-orange-600 hover:text-white'>$$$$</button>
                     </div>
                 </div>
             </div>

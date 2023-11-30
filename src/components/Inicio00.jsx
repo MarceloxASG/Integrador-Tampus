@@ -3,7 +3,7 @@ import React from 'react'
 
 const Inicio00 = () => {
   return (
-    <div className='max-w-[1640px] mx-auto px-[4%] py-4 mb-[-45px] mt-2'>
+    <div className='max-w-[1640px] mx-auto px-[4%] py-4 mb-[-45px] mt-6'>
         <div className='max-h-[500px] relative'>
             {/* Overlay */}
             <div className='absolute w-full h-full text-gray-200 max-h-[500px] bg-black/40 flex flex-col justify-center'>

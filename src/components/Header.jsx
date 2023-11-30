@@ -21,7 +21,7 @@ const Header = () => {
     
     
     return(
-        <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-black'>
+        <div className='flex justify-between items-center h-24 w-full mx-auto px-4 text-black shadow-md'>
             <h1 className='w-full text-3xl font-bold text-[#00df9a]'>TAMPUS</h1>
             <ul className='hidden md:flex'>
                 <Link className={`p-4 hover:text-purple-800 hover:bg-[#e0fff5] transition-colors duration-300 ${
